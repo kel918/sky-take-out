@@ -20,10 +20,11 @@ import java.time.LocalDateTime;
 @Slf4j
 public class AutoFillAspect {
 
-    @Pointcut("execution(* com.sky.mapper.*.*(..)) && @annotation(com.sky.annotation.AutoFill)")
-    public void autoFillPointCut() {}
+//    @Pointcut("execution(* com.sky.mapper.*.*(..)) && @annotation(com.sky.annotation.AutoFill)")
+//    public void autoFillPointCut() {}
 
-    @Before("autoFillPointCut()")
+//    @Before("autoFillPointCut()")
+    @Before("execution(* com.sky.mapper.*.*(..)) && @annotation(com.sky.annotation.AutoFill)")
     public void autoFill(JoinPoint joinPoint){
         log.info("开始进行公共字段填充");
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();

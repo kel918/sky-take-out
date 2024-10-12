@@ -24,8 +24,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
     private JwtProperties jwtProperties;
 
     /**
-     * 校验jwt
-     *
+     * 检测当前请求是否包含token，如果存在，则直接放行；如果不存在，则直接拦截，返回401状态码
      * @param request
      * @param response
      * @param handler
